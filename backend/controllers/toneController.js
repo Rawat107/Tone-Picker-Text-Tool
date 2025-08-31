@@ -4,7 +4,7 @@ const cache = new Map();
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
 class ToneController {
-    async adjustTone(req, res){
+    async adjustTone(req, res, next){
         try{
             const {text, toneCoordinates, preset, previousAttempts = [] } = req.body
 

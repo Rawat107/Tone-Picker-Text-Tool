@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 
 dotenv.config();
-import toneRoutes from './routes/toneRoutes.js';
+import toneRoutes from './routes/toneRoutes.js'
 import errorHandler from './middleware/errorHandler.js';
 
 const app = express();
@@ -60,14 +60,15 @@ app.get('/', (req, res) => {
 app.use(errorHandler);
 
 // 404 handler
-app.use('*', (req, res) => {
+app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
+
 
 app.listen(PORT, () => {
     console.log(` Server running on port ${PORT}`);
     console.log(` Health check: http://localhost:${PORT}/health`);
-    console.log(`S Environment: ${process.env.NODE_ENV}`);
+    console.log(` Environment: ${process.env.NODE_ENV}`);
 });
 
 export default app;

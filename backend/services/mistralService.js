@@ -4,7 +4,7 @@ class MistralService {
     constructor() {
         this.apiKey = process.env.MISTRAL_API_KEY;
         this.baseUrl = 'https://api.mistral.ai/v1';
-        this.model = 'mistral-7b-instruct-v0.1';
+        this.model = 'mistral-small-latest';
 
         if(!this.apiKey) {
             throw new Error('MISTRAL_API_KEY is not set in environment variables');
