@@ -64,7 +64,7 @@ const useTextHistory = (initialText = '') => {
   const reset = useCallback(() => {
     if (history.length > 0) {
       setCurrentIndex(0);
-      console.log('🔄 Reset to first entry');
+      console.log(' Reset to first entry');
       return history[0];
     }
     return null;

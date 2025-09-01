@@ -10,7 +10,7 @@ const useToneAdjustment = () => {
       throw new Error('Text cannot be empty');
     }
 
-    console.log('🎯 Starting tone adjustment...', {
+    console.log(' Starting tone adjustment...', {
       textLength: text.length,
       toneCoordinates,
       preset,
@@ -28,10 +28,10 @@ const useToneAdjustment = () => {
         previousAttempts
       };
 
-      console.log('📤 Sending request to API...');
-      const response = await api.post('/tone/adjust', requestData);
+      console.log(' Sending request to API...');
+      const response = await api.post('/api/tone/adjust', requestData);
 
-      console.log('📥 Received response:', {
+      console.log(' Received response:', {
         success: true,
         cached: response.data.cached,
         textLength: response.data.adjustedText?.length
@@ -41,7 +41,7 @@ const useToneAdjustment = () => {
     } catch (err) {
       const errorMessage = err.response?.data?.error || err.message || 'Failed to adjust tone';
 
-      console.error('❌ Tone adjustment failed:', {
+      console.error(' Tone adjustment failed:', {
         error: errorMessage,
         status: err.response?.status,
         data: err.response?.data

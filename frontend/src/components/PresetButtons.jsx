@@ -6,7 +6,7 @@ const PresetButtons = ({ onPresetSelect, disabled }) => {
       name: 'Executive',
       key: 'executive',
       description: 'Authoritative and concise',
-      icon: '👔',
+      icon: '',
       color: 'bg-gray-600 hover:bg-gray-700',
       coordinates: { x: 0.85, y: 0.25 }
     },
@@ -14,7 +14,7 @@ const PresetButtons = ({ onPresetSelect, disabled }) => {
       name: 'Technical', 
       key: 'technical',
       description: 'Precise and detailed',
-      icon: '⚙️',
+      icon: '',
       color: 'bg-blue-600 hover:bg-blue-700',
       coordinates: { x: 0.75, y: 0.85 }
     },
@@ -22,7 +22,7 @@ const PresetButtons = ({ onPresetSelect, disabled }) => {
       name: 'Educational',
       key: 'educational',
       description: 'Clear and informative', 
-      icon: '📚',
+      icon: '',
       color: 'bg-green-600 hover:bg-green-700',
       coordinates: { x: 0.55, y: 0.75 }
     },
@@ -30,7 +30,7 @@ const PresetButtons = ({ onPresetSelect, disabled }) => {
       name: 'Basic',
       key: 'basic',
       description: 'Simple and straightforward',
-      icon: '✨',
+      icon: '',
       color: 'bg-purple-600 hover:bg-purple-700',
       coordinates: { x: 0.25, y: 0.25 }
     }
@@ -38,7 +38,7 @@ const PresetButtons = ({ onPresetSelect, disabled }) => {
 
   const handlePresetClick = (presetKey) => {
     if (!disabled) {
-      console.log('🎨 Preset selected:', presetKey);
+      console.log(' Preset selected:', presetKey);
       onPresetSelect(presetKey);
     }
   };

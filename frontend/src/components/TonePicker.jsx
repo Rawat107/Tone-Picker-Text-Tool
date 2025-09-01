@@ -102,9 +102,9 @@ const TonePicker = ({ coordinates, onChange, disabled }) => {
       {/* Main Grid Container */}
       <div className="relative">
         {/* Y-axis label */}
-        <div className="absolute -left-20 top-0 h-full flex flex-col justify-between items-center text-sm font-medium text-gray-600 py-2">
-          <span className="transform -rotate-90 whitespace-nowrap origin-center">Concise</span>
-          <span className="transform -rotate-90 whitespace-nowrap origin-center">Expanded</span>
+        <div className="absolute mt-5 -left-13 top-0 h-full flex flex-col gap-y-60 items-center text-sm font-medium text-gray-600 py-2">
+          <span className="transform -rotate-90 whitespace-nowrap origin-center">Concise →</span>
+          <span className="transform -rotate-90 whitespace-nowrap origin-center">← Expanded</span>
         </div>
 
         {/* Grid */}

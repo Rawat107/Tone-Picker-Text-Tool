@@ -25,7 +25,6 @@ const useLocalStorage = (key, initialValue) => {
       // Save to localStorage
       if (typeof window !== 'undefined') {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
-        console.log(`💾 Saved to localStorage [${key}]:`, valueToStore);
       }
     } catch (error) {
       console.warn(`Error setting localStorage key "${key}":`, error);
@@ -41,7 +40,6 @@ const useLocalStorage = (key, initialValue) => {
         try {
           const newValue = JSON.parse(e.newValue);
           setStoredValue(newValue);
-          console.log(`🔄 localStorage updated from other tab [${key}]:`, newValue);
         } catch (error) {
           console.warn(`Error parsing localStorage key "${key}":`, error);
         }
