@@ -182,7 +182,7 @@ function App() {
               <button
                 onClick={handleUndo}
                 disabled={!canUndo || isLoading}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition-colors flex items-center gap-2"
+                className="px-4 py-2 bg-gray-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition-colors flex items-center gap-2 cursor-pointer"
               >
                 <FaUndo /> Undo
               </button>
@@ -190,7 +190,7 @@ function App() {
               <button
                 onClick={handleRedo}
                 disabled={!canRedo || isLoading}
-                className="px-4 py-2 bg-gray-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition-colors flex items-center gap-2"
+                className="px-4 py-2 bg-gray-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-600 transition-colors flex items-center gap-2 cursor-pointer"
               >
                 <FaRedo /> Redo
               </button>
@@ -198,7 +198,7 @@ function App() {
               <button
                 onClick={handleReset}
                 disabled={!originalText || isLoading}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-red-600 transition-colors flex items-center gap-2"
+                className="px-4 py-2 bg-red-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-red-600 transition-colors flex items-center gap-2 cursor-pointer"
               >
                 <MdRefresh /> Reset
               </button>
@@ -206,7 +206,7 @@ function App() {
               <button
                 onClick={handleTryAgain}
                 disabled={!currentText.trim() || isLoading}
-                className="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-colors flex items-center gap-2"
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-colors flex items-center gap-2 cursor-pointer"
               >
                 <MdReplay /> Try Again
               </button>

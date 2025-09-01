@@ -56,7 +56,7 @@ const PresetButtons = ({ onPresetSelect, disabled }) => {
             disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none
             hover:scale-105 active:scale-95
             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-            shadow-md hover:shadow-lg
+            shadow-md hover:shadow-lg cursor-pointer
           `}
           title={`Apply ${preset.name} tone: ${preset.description}`}
         >

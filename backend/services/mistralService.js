@@ -79,16 +79,18 @@ class MistralService {
     createTonePrompt(text, toneDescription, previousAttempts) {
         let prompt = `Please rewrite the following text to match this specific tone and style: ${toneDescription}
 
-Original Text: "${text}"
+        Original Text: "${text}"
 
-IMPORTANT INSTRUCTIONS:
-- Maintain the exact same meaning and core information
-- Adjust ONLY the writing style, formality level, and level of detail to match the tone description
-- Keep the same approximate length of the text unless the tone specifically requires expansion or conciseness
-- Ensure the output sounds natural and coherent
-- Do not add any new information or change the factual content
-- Return only the rewritten text, without any additional commentary or explanation
-- If the tone description is unclear or contradictory, use your best judgment to interpret it in a way that enhances the text while staying true to the original meaning`;
+        IMPORTANT INSTRUCTIONS:
+        - Maintain the exact same meaning and core information
+        - Adjust ONLY the writing style, formality level, and level of detail to match the tone description
+        - Keep the same approximate length of the text unless the tone specifically requires expansion or conciseness
+        - Ensure the output sounds natural and coherent
+        - Do not add any new information or change the factual content
+        - Return only the rewritten text, without any additional commentary or explanation like saying here is your text, or explanations after the tone change
+        - Use proper grammar, punctuation, and spelling
+        - If the original text contains any errors, correct them while maintaining the original meaning
+        - If the tone description is unclear or contradictory, use your best judgment to interpret it in a way that enhances the text while staying true to the original meaning`;
 
         // If there are previous attempts, include them to get variation
         if (previousAttempts.length > 0) {

@@ -5,6 +5,9 @@ const TonePicker = ({ coordinates, onChange, disabled }) => {
   const [isHovering, setIsHovering] = useState(false);
   const gridRef = useRef(null);
   const animationRef = useRef(null);
+  const lastCoordsRef = useRef(coordinates);
+  const [previewCoords, setPreviewCoords] = useState(coordinates);
+
 
   const handlePointerDown = useCallback((e) => {
     if (disabled) return;
@@ -18,6 +21,7 @@ const TonePicker = ({ coordinates, onChange, disabled }) => {
     }
   }, [disabled]);
 
+
   const handlePointerMove = useCallback((e) => {
     if (!isDragging || disabled || !gridRef.current) return;
 
@@ -25,24 +29,37 @@ const TonePicker = ({ coordinates, onChange, disabled }) => {
     const x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
     const y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
 
-    // Throttle updates for smooth performance
+    const coords = { x, y };
+    lastCoordsRef.current = coords;
+
+    // Cancel any queued animation frame
     if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
     }
 
+    // Update visuals smoothly
     animationRef.current = requestAnimationFrame(() => {
-      onChange({ x, y });
+      setPreviewCoords(coords); // 👈 only visual update
     });
-  }, [isDragging, disabled, onChange]);
+  }, [isDragging, disabled]);
 
   const handlePointerUp = useCallback((e) => {
     setIsDragging(false);
 
-    // Release pointer capture
+    if (lastCoordsRef.current) {
+      onChange(lastCoordsRef.current); // 👈 API call happens once here
+    }
+
     if (e.target.releasePointerCapture) {
       e.target.releasePointerCapture(e.pointerId);
     }
-  }, []);
+  }, [onChange]);
+
+  useEffect(() => {
+    if (!isDragging) {
+      setPreviewCoords(coordinates);
+    }
+  }, [coordinates, isDragging]);
 
   const handleGridClick = useCallback((e) => {
     if (disabled || !gridRef.current || isDragging) return;
@@ -147,8 +164,8 @@ const TonePicker = ({ coordinates, onChange, disabled }) => {
               ${isHovering && !disabled ? 'scale-105' : ''}
             `}
             style={{
-              left: `${coordinates.x * 100}%`,
-              top: `${coordinates.y * 100}%`,
+              left: `${previewCoords.x * 100}%`,
+              top: `${previewCoords.y * 100}%`,
             }}
             onPointerDown={handlePointerDown}
           >
